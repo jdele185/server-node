@@ -70,6 +70,7 @@
     "deep-is": "^0.1.4",
     "define-properties": "^1.2.0",
     "doctrine": "^3.0.0",
+    "dotenv": "^16.0.3",
     "electron-to-chromium": "^1.4.333",
     "es-abstract": "^1.21.2",
     "es-array-method-boxes-properly": "^1.0.0",
