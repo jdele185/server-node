@@ -6,7 +6,6 @@ export const notFound = (req, res, next) => {
   next(error)
 }
 
-
 export const errorHandler = (error, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode
 
@@ -18,4 +17,3 @@ export const errorHandler = (error, req, res, next) => {
     stack: process.env.NODE_ENV === 'production' ? 'image.png' : error.stack,
   })
 }
-
