@@ -1,13 +1,10 @@
 import db from '../helpers/db'
 
-export const getEmployees = async (skip, take) => {
-  const count = await db.employee.count()
-  const employees = await db.employee.findMany({
+export const getEmployees = async (skip = 0, take = 10) => 
+  db.employee.findMany({
     skip,
     take,
   })
-  return { count, employees }
-}
 
 export const getEmployee = async (id) => 
   db.employee.findUnique({ where: { employeeId: id } })
@@ -20,7 +17,7 @@ export const updateEmployee = async (id, employeeData) => {
   if (employee) {
     return db.employee.update({
       where: { employeeId: id },
-      data: { ...employee, ...employeeData },
+      data: { ...employee, ...employeeData, updatedAt: new Date() },
     })
   }
   return null

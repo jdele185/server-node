@@ -7,3 +7,5 @@ export const getDepartment = async (id) =>
 
 export const addDepartment = async (name, companyId) => 
   db.department.create({ data: { name, companyId } })
+
+
