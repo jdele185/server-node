@@ -15,13 +15,13 @@ const port = parseInt(process.env.PORT, 10) || 3005
 
 const app = express()
 
+app.use(morgan(process.env.MORGAN_LOG))
 app.use(
-  basicAuth({
-    users: { [process.env.ADMIN_USER]: process.env.ADMIN_PASS }
+  cors({ 
+    origin: process.env.CORS_ORIGIN, 
+    exposedHeaders: ['x-total-count', 'x-total-pages'],
   }),
 )
-app.use(morgan(process.env.MORGAN_LOG))
-app.use(cors({ origin: process.env.CORS_ORIGIN }))
 app.use(helmet())
 app.use(bodyParser.json())
 
